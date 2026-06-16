@@ -2,11 +2,13 @@ package com.mycompany.teste1;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.geometry.Orientation;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -25,16 +27,15 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        AnchorPane root = new AnchorPane();
+        FlowPane root = new FlowPane();
 
         Scene scene = new Scene(root, 640, 480);
         stage.setScene(scene);
         
-        Text component = new Text("Componente1");
-        AnchorPane.setRightAnchor(component, 50.0);
-        AnchorPane.setTopAnchor(component, 100.0);
-        
-        root.getChildren().add(component);
+        root.setOrientation(Orientation.HORIZONTAL);
+        root.getChildren().add(new Text("Componente1"));
+        root.getChildren().add(new Text("Componente2"));
+        root.getChildren().add(new Text("Componente3"));
 
         stage.setTitle("Sistema de teste");
         stage.show();
@@ -149,6 +150,18 @@ AnchorPane root = new AnchorPane();
         stage.show();
     }
 */
-/*
+/* Sexto código
+FlowPane root = new FlowPane();
 
+        Scene scene = new Scene(root, 640, 480);
+        stage.setScene(scene);
+        
+        root.setOrientation(Orientation.HORIZONTAL);
+        root.setOrientation(Orientation.VERTICAL);
+        root.getChildren().add(new Text("Componente1"));
+        root.getChildren().add(new Text("Componente2"));
+        root.getChildren().add(new Text("Componente3"));
+
+        stage.setTitle("Sistema de teste");
+        stage.show();
 */
