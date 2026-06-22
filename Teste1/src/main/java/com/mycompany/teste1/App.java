@@ -3,16 +3,22 @@ package com.mycompany.teste1;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.TilePane;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
@@ -27,16 +33,26 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        FlowPane root = new FlowPane();
-
+        BorderPane root = new BorderPane();
+        
         Scene scene = new Scene(root, 640, 480);
         stage.setScene(scene);
         
-        root.setOrientation(Orientation.HORIZONTAL);
-        root.getChildren().add(new Text("Componente1"));
-        root.getChildren().add(new Text("Componente2"));
-        root.getChildren().add(new Text("Componente3"));
-
+        root.setTop(new Text("Componente1"));
+        
+        GridPane campos = new GridPane();
+        campos.add(new Label("Login:"), 0, 0);
+        campos.add(new TextField(), 1, 0);
+        campos.add(new Label("Senha:"), 0, 1);
+        campos.add(new TextField(), 1, 1);
+        
+        root.setCenter(campos);
+        
+        HBox botoes = new HBox();
+        botoes.getChildren().add(new Button("Login"));
+        botoes.getChildren().add(new Button("Cancelar"));
+        root.setBottom(botoes);
+        
         stage.setTitle("Sistema de teste");
         stage.show();
     }
@@ -164,4 +180,36 @@ FlowPane root = new FlowPane();
 
         stage.setTitle("Sistema de teste");
         stage.show();
+*/
+/* Códigos de alinhamento e espaçamento
+
+root.setAlignment(Pos.CENTER);
+root.setHgap(20);
+root.setVgap(20);
+*/
+/* Sétimo código
+TilePane root = new TilePane();
+
+        Scene scene = new Scene(root, 800, 600);
+        stage.setScene(scene);
+        
+        root.getChildren().add(new Text("Componente1"));
+        root.getChildren().add(new Text("Componente2"));
+        root.getChildren().add(new Text("Componente3"));
+        root.getChildren().add(new Text("Componente4"));
+        
+        root.setTileAlignment(Pos.CENTER);
+*/
+/* Oitavo código
+SplitPane root = new SplitPane();
+
+        Scene scene = new Scene(root, 800, 600);
+        stage.setScene(scene);
+        
+        root.setOrientation(Orientation.VERTICAL);
+        root.setOrientation(Orientation.HORIZONTAL);
+        root.getItems().add(new Text("Componente1"));
+        root.getItems().add(new Text("Componente2"));
+        root.getItems().add(new Text("Componente3"));
+        root.getItems().add(new Text("Componente4"));
 */
