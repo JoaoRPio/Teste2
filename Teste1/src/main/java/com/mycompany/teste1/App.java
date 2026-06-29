@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -23,6 +24,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -33,25 +37,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        BorderPane root = new BorderPane();
-        
-        Scene scene = new Scene(root, 640, 480);
+        VBox root = new VBox();
+        Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         
-        root.setTop(new Text("Componente1"));
         
-        GridPane campos = new GridPane();
-        campos.add(new Label("Login:"), 0, 0);
-        campos.add(new TextField(), 1, 0);
-        campos.add(new Label("Senha:"), 0, 1);
-        campos.add(new TextField(), 1, 1);
-        
-        root.setCenter(campos);
-        
-        HBox botoes = new HBox();
-        botoes.getChildren().add(new Button("Login"));
-        botoes.getChildren().add(new Button("Cancelar"));
-        root.setBottom(botoes);
         
         stage.setTitle("Sistema de teste");
         stage.show();
@@ -212,4 +202,54 @@ SplitPane root = new SplitPane();
         root.getItems().add(new Text("Componente2"));
         root.getItems().add(new Text("Componente3"));
         root.getItems().add(new Text("Componente4"));
+*/
+/* Nono código
+BorderPane root = new BorderPane();
+        
+        Scene scene = new Scene(root, 640, 480);
+        stage.setScene(scene);
+        
+        root.setTop(new Text("Componente1"));
+        
+        GridPane campos = new GridPane();
+        campos.add(new Label("Login:"), 0, 0);
+        campos.add(new TextField(), 1, 0);
+        campos.add(new Label("Senha:"), 0, 1);
+        campos.add(new TextField(), 1, 1);
+        
+        root.setCenter(campos);
+        
+        HBox botoes = new HBox();
+        botoes.getChildren().add(new Button("Login"));
+        botoes.getChildren().add(new Button("Cancelar"));
+        root.setBottom(botoes);
+*/
+/* Décimo código
+VBox root = new VBox();
+        
+        Scene scene = new Scene(root, 800, 600);
+        stage.setScene(scene);
+        
+        Font fTitulo = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 30);
+        Font fCampos = Font.font("Verdana", FontWeight.NORMAL, FontPosture.ITALIC, 20);
+        
+        Label titulo = new Label("Login");
+        Label usuario = new Label("Usuário");
+        Label senha = new Label("Senha");
+        
+        titulo.setFont(fTitulo);
+        usuario.setFont(fCampos);
+        senha.setFont(fCampos);
+        senha.setTextFill(Color.RED);
+        
+        
+        
+        root.getChildren().add(titulo);
+        root.getChildren().add(usuario);
+        root.getChildren().add(senha);
+*/
+/* Décimo Primeiro código
+PassordField campoSenha = new PasswordField();
+camposSenha.setFont(fInput);
+campos.add(camposSenha, 1,1);
 */
