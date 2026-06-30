@@ -2,13 +2,19 @@ package com.mycompany.teste1;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -18,6 +24,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -87,9 +95,9 @@ Group bandeira = new Group();
 
         stage.setTitle("Sistema de teste");
         stage.show();*/
-/*HBox root = new HBox(); horizontal*/
-/*VBox root = new VBox(); vertical*/
-/* Segundo código
+ /*HBox root = new HBox(); horizontal*/
+ /*VBox root = new VBox(); vertical*/
+ /* Segundo código
 Pane root = new Pane();
 Scene scene = new Scene(root, 640, 480);
         stage.setScene(scene);
@@ -108,8 +116,8 @@ Scene scene = new Scene(root, 640, 480);
         stage.setTitle("Sistema de teste");
         stage.show();
     }
-*/
-/* Terceiro código
+ */
+ /* Terceiro código
 BorderPane root = new BorderPane();
 
         Scene scene = new Scene(root, 640, 480);
@@ -124,8 +132,8 @@ BorderPane root = new BorderPane();
         stage.setTitle("Sistema de teste");
         stage.show();
     }
-*/
-/* Quarto código - Grades
+ */
+ /* Quarto código - Grades
 GridPane root = new GridPane();
 
         Scene scene = new Scene(root, 640, 480);
@@ -139,8 +147,8 @@ GridPane root = new GridPane();
 
         stage.setTitle("Sistema de teste");
         stage.show();
-*/
-/* Quinto código
+ */
+ /* Quinto código
 AnchorPane root = new AnchorPane();
 
         Scene scene = new Scene(root, 640, 480);
@@ -155,8 +163,8 @@ AnchorPane root = new AnchorPane();
         stage.setTitle("Sistema de teste");
         stage.show();
     }
-*/
-/* Sexto código
+ */
+ /* Sexto código
 FlowPane root = new FlowPane();
 
         Scene scene = new Scene(root, 640, 480);
@@ -170,14 +178,14 @@ FlowPane root = new FlowPane();
 
         stage.setTitle("Sistema de teste");
         stage.show();
-*/
-/* Códigos de alinhamento e espaçamento
+ */
+ /* Códigos de alinhamento e espaçamento
 
 root.setAlignment(Pos.CENTER);
 root.setHgap(20);
 root.setVgap(20);
-*/
-/* Sétimo código
+ */
+ /* Sétimo código
 TilePane root = new TilePane();
 
         Scene scene = new Scene(root, 800, 600);
@@ -189,8 +197,8 @@ TilePane root = new TilePane();
         root.getChildren().add(new Text("Componente4"));
         
         root.setTileAlignment(Pos.CENTER);
-*/
-/* Oitavo código
+ */
+ /* Oitavo código
 SplitPane root = new SplitPane();
 
         Scene scene = new Scene(root, 800, 600);
@@ -202,8 +210,8 @@ SplitPane root = new SplitPane();
         root.getItems().add(new Text("Componente2"));
         root.getItems().add(new Text("Componente3"));
         root.getItems().add(new Text("Componente4"));
-*/
-/* Nono código
+ */
+ /* Nono código
 BorderPane root = new BorderPane();
         
         Scene scene = new Scene(root, 640, 480);
@@ -223,8 +231,8 @@ BorderPane root = new BorderPane();
         botoes.getChildren().add(new Button("Login"));
         botoes.getChildren().add(new Button("Cancelar"));
         root.setBottom(botoes);
-*/
-/* Décimo código
+ */
+ /* Décimo código
 VBox root = new VBox();
         
         Scene scene = new Scene(root, 800, 600);
@@ -247,9 +255,53 @@ VBox root = new VBox();
         root.getChildren().add(titulo);
         root.getChildren().add(usuario);
         root.getChildren().add(senha);
-*/
-/* Décimo Primeiro código
+ */
+ /* Décimo Primeiro código
 PassordField campoSenha = new PasswordField();
 camposSenha.setFont(fInput);
 campos.add(camposSenha, 1,1);
+ */
+ /* Décimo Segundo código
+Label atividades = new Label("Atividades:");
+        
+        CheckBox leitura = new CheckBox("Leitura");
+        CheckBox ciclismo = new CheckBox("Ciclismo");
+        CheckBox track = new CheckBox("Track");
+        CheckBox corrida = new CheckBox("Corrida");
+        
+        root.getChildren().addAll(atividades, leitura, ciclismo, track, corrida);
+ */
+ /* Décimo terceiro código
+Label contrato = new Label("Concorda com o contrato");
+        
+        RadioButton concordo = new RadioButton("Sim");
+        RadioButton disconcordo = new RadioButton("Não");
+
+        ToggleGroup opcoes = new ToggleGroup();
+          concordo.setToggleGroup(opcoes);
+          disconcordo.setToggleGroup(opcoes);
+        
+        root.getChildren().addAll(contrato, concordo, disconcordo);
+ */
+/* Décimo quarto código
+TextArea observacoes = new TextArea();
+        observacoes.setPrefSize(400, 300);
+        observacoes.setWrapText(true);
+        
+        root.getChildren().add(observacoes);
+*/
+/* Décimo quinto código
+ObservableList<String> lista = FXCollections.observableArrayList("Informática", "Vestuário", "Adiministração");
+        ListView<String> minhaListagem = new ListView<String>(lista);
+        
+        root.getChildren().addAll(minhaListagem);
+*/
+/* Décimo sexto código
+ButtonBar botoes = new ButtonBar();
+
+Button confirmar = new Button("Confirmar");
+Button cancelar = new Button("Cancelar");
+botoes.getButtons().addAll(confirmar, cancelar);
+
+ root.getChildren().addAll(botoes);
 */
