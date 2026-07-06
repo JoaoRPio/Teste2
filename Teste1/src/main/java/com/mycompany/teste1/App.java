@@ -13,6 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Spinner;
@@ -52,7 +55,29 @@ public class App extends Application {
         Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         
+        Menu file = new Menu("Arquivos");
+        MenuItem novoAquivo = new MenuItem("Novo");
+        MenuItem abrirAquivo = new MenuItem("Abrir");
+        MenuItem fecharAquivo = new MenuItem("Fechar");
+        file.getItems().addAll(novoAquivo, abrirAquivo, fecharAquivo);
+       
+        Menu view = new Menu("Ver");
+        MenuItem zoomIn = new MenuItem("Zoon In");
+        MenuItem zoomOut = new MenuItem("Zoon Out");
+        MenuItem zoomNormal = new MenuItem("Zoon Normal");
+        view.getItems().addAll(zoomIn, zoomOut, zoomNormal);
         
+        Menu ajudar = new Menu("Ajudar");
+        MenuItem maisInformação = new MenuItem("Mais Informação");
+        MenuItem manual = new MenuItem("Manual");
+        MenuItem site = new MenuItem("Site");
+        ajudar.getItems().addAll(maisInformação, manual, site);
+       
+        MenuBar meuMenu = new MenuBar();
+        meuMenu.getMenus().addAll(file, view, ajudar);
+       
+        Group grupoPrincipal = new Group(meuMenu);
+        root.getChildren().add(grupoPrincipal);
         
         stage.setTitle("Sistema de teste");
         stage.show();
@@ -286,20 +311,20 @@ Label contrato = new Label("Concorda com o contrato");
         
         root.getChildren().addAll(contrato, concordo, disconcordo);
  */
-/* Décimo quarto código
+ /* Décimo quarto código
 TextArea observacoes = new TextArea();
         observacoes.setPrefSize(400, 300);
         observacoes.setWrapText(true);
         
         root.getChildren().add(observacoes);
-*/
-/* Décimo quinto código
+ */
+ /* Décimo quinto código
 ObservableList<String> lista = FXCollections.observableArrayList("Informática", "Vestuário", "Adiministração");
         ListView<String> minhaListagem = new ListView<String>(lista);
         
         root.getChildren().addAll(minhaListagem);
-*/
-/* Décimo sexto código
+ */
+ /* Décimo sexto código
 ButtonBar botoes = new ButtonBar();
 
 Button confirmar = new Button("Confirmar");
@@ -307,8 +332,8 @@ Button cancelar = new Button("Cancelar");
 botoes.getButtons().addAll(confirmar, cancelar);
 
  root.getChildren().addAll(botoes);
-*/
-/* Décimo sétimo código
+ */
+ /* Décimo sétimo código
 VBox root = new VBox();
         Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
@@ -321,8 +346,8 @@ VBox root = new VBox();
         painelBt.getButtons().addAll(btVoltar, btConfirmar, btExcluir);
         
         root.getChildren().add(painelBt);  
-*/
-/* Décimo oitavo código
+ */
+ /* Décimo oitavo código
 VBox root = new VBox();
         Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
@@ -338,21 +363,37 @@ VBox root = new VBox();
         
         TreeView<String> cursosIfc = new TreeView<>(cursos);
         root.getChildren().add(cursosIfc);
-*/
-/* Décimo nono código
+ */
+ /* Décimo nono código
 VBox root = new VBox();
         Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         
         Spinner<Integer> mes = new Spinner<Integer>(1,12,1);
         root.getChildren().add(mes);
-*/
+ */
 /* Vigéssimo código
 VBox root = new VBox();
         Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
+        Menu file = new Menu("Arquivos");
+        MenuItem novoAquivo = new MenuItem("Novo");
+        MenuItem abrirAquivo = new MenuItem("Abrir");
+        MenuItem fecharAquivo = new MenuItem("Fechar");
+        file.getItems().addAll(novoAquivo, abrirAquivo, fecharAquivo);
+       
+        Menu view = new Menu("Ver");
+        MenuItem zoomIn = new MenuItem("Zoon In");
+        MenuItem zoomOut = new MenuItem("Zoon Out");
+        MenuItem zoomNormal = new MenuItem("Zoon Normal");
+        view.getItems().addAll(zoomIn, zoomOut, zoomNormal);
+       
+        MenuBar meuMenu = new MenuBar();
+        meuMenu.getMenus().addAll(file, view);
+       
+        Group grupoPrincipal = new Group(meuMenu);
+        root.getChildren().add(grupoPrincipal);
+*/
+/* Vigéssimo primeiro código
 
-Menu file = new Menu("Arquivo");
-MenuItem novoArquivo = new MenuItem("Novo");
-MenuItem abrir
 */
