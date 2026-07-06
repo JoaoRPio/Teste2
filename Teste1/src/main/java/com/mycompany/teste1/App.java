@@ -15,6 +15,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -26,6 +27,8 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -304,4 +307,52 @@ Button cancelar = new Button("Cancelar");
 botoes.getButtons().addAll(confirmar, cancelar);
 
  root.getChildren().addAll(botoes);
+*/
+/* Décimo sétimo código
+VBox root = new VBox();
+        Scene scene = new Scene(root, 800, 600);
+        stage.setScene(scene);
+        
+        Button btVoltar = new Button("Voltar");
+        Button btConfirmar = new Button("Confirmar");
+        Button btExcluir = new Button("Excluir");
+        
+        ButtonBar painelBt = new ButtonBar();
+        painelBt.getButtons().addAll(btVoltar, btConfirmar, btExcluir);
+        
+        root.getChildren().add(painelBt);  
+*/
+/* Décimo oitavo código
+VBox root = new VBox();
+        Scene scene = new Scene(root, 800, 600);
+        stage.setScene(scene);
+        
+        TreeItem<String> cursos = new TreeItem<String>("Cursos");
+        TreeItem<String> tecnicos = new TreeItem<String>("Técnicos");
+        TreeItem<String> informatica = new TreeItem<String>("Informática");
+        TreeItem<String> vestuario = new TreeItem<String>("Vestuário");
+        TreeItem<String> adm = new TreeItem<String>("Administração");
+        
+        cursos.getChildren().add(tecnicos);
+        tecnicos.getChildren().addAll(informatica, vestuario, adm);
+        
+        TreeView<String> cursosIfc = new TreeView<>(cursos);
+        root.getChildren().add(cursosIfc);
+*/
+/* Décimo nono código
+VBox root = new VBox();
+        Scene scene = new Scene(root, 800, 600);
+        stage.setScene(scene);
+        
+        Spinner<Integer> mes = new Spinner<Integer>(1,12,1);
+        root.getChildren().add(mes);
+*/
+/* Vigéssimo código
+VBox root = new VBox();
+        Scene scene = new Scene(root, 800, 600);
+        stage.setScene(scene);
+
+Menu file = new Menu("Arquivo");
+MenuItem novoArquivo = new MenuItem("Novo");
+MenuItem abrir
 */
