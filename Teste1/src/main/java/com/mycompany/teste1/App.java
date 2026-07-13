@@ -78,13 +78,68 @@ public class App extends Application {
        
         Group grupoPrincipal = new Group(meuMenu);
         root.getChildren().add(grupoPrincipal);
+       
+        Label atividade = new Label("Atividade");
+       
+        CheckBox leitura = new CheckBox("Leitura");
+        CheckBox ciclismo = new CheckBox("Ciclismo");
+        CheckBox track = new CheckBox("Track");
+        CheckBox corrida = new CheckBox("Corrida");
+       
+        Label contrato = new Label("Concorda com o contato?");
+        RadioButton concordo = new RadioButton("Concordo");
+        RadioButton discordo = new RadioButton("Discordo");
+        RadioButton naosei = new RadioButton("Não sei");
+       
+        ToggleGroup contratoGrup = new ToggleGroup();
+        concordo.setToggleGroup(contratoGrup);
+        discordo.setToggleGroup(contratoGrup);
+        naosei.setToggleGroup(contratoGrup);
+       
+        Label tObservacao = new Label("Observação");
+        TextArea observacao = new TextArea();
+        observacao.setPrefSize(400, 300);        
+        observacao.setWrapText(true);
+       
+        ObservableList<String> lista = FXCollections.observableArrayList("Informatica", "Administração", "Veste");
+        ListView<String> minhaListagem = new ListView<String>(lista);
+       
+        ButtonBar painelBt = new ButtonBar();
+        Button btVoltar = new Button("Voltar");
+        Button btConfirmar = new Button("Confirmar");
+        Button btExcluir = new Button("Excluir");
+        painelBt.getButtons().addAll(btVoltar, btConfirmar, btExcluir);
+       
+        TreeItem<String> cursos = new TreeItem<String>("Curso");
+        TreeItem<String> tecnico = new TreeItem<String>("Tecnico");
+        TreeItem<String> informatica = new TreeItem<String>("Informatica");
+        TreeItem<String> vestuario = new TreeItem<String>("Vetuaario");
+        TreeItem<String> adm = new TreeItem<String>("Administração");
+       
+        cursos.getChildren().add(tecnico);
+        tecnico.getChildren().addAll(informatica, vestuario, adm);
+       
+        TreeView<String> cursosIFC = new TreeView<String>(cursos);
+       
+        Label textoArvoret = new Label("Árvore");
+       
+        HBox MesSpiner = new HBox();
+        Text mesinho = new Text("Mes: ");
+        Spinner<Integer> mes = new Spinner<Integer>(1, 12, 1);
+        MesSpiner.getChildren().addAll(mesinho, mes);
+       
+       
+       
+        root.getChildren().addAll(atividade, leitura, ciclismo, track, corrida,
+                contrato, concordo, discordo, naosei, tObservacao, observacao,
+                textoArvoret, cursosIFC, minhaListagem, MesSpiner, painelBt);
         
         stage.setTitle("Sistema de teste");
         stage.show();
     }
 
     public static void main(String[] args) {
-        launch();
+    launch();
     }
 
 }
@@ -388,12 +443,99 @@ VBox root = new VBox();
         MenuItem zoomNormal = new MenuItem("Zoon Normal");
         view.getItems().addAll(zoomIn, zoomOut, zoomNormal);
        
+        Menu ajudar = new Menu("Ajudar");
+        MenuItem maisInformação = new MenuItem("Mais Informação");
+        MenuItem manual = new MenuItem("Manual");
+        MenuItem site = new MenuItem("Site");
+        ajudar.getItems().addAll(maisInformação, manual, site);
+       
         MenuBar meuMenu = new MenuBar();
-        meuMenu.getMenus().addAll(file, view);
+        meuMenu.getMenus().addAll(file, view, ajudar);
        
         Group grupoPrincipal = new Group(meuMenu);
         root.getChildren().add(grupoPrincipal);
 */
 /* Vigéssimo primeiro código
+Menu file = new Menu("Arquivos");
+        MenuItem novoAquivo = new MenuItem("Novo");
+        MenuItem abrirAquivo = new MenuItem("Abrir");
+        MenuItem fecharAquivo = new MenuItem("Fechar");
+        file.getItems().addAll(novoAquivo, abrirAquivo, fecharAquivo);
+       
+        Menu view = new Menu("Ver");
+        MenuItem zoomIn = new MenuItem("Zoon In");
+        MenuItem zoomOut = new MenuItem("Zoon Out");
+        MenuItem zoomNormal = new MenuItem("Zoon Normal");
+        view.getItems().addAll(zoomIn, zoomOut, zoomNormal);
+        
+        Menu ajudar = new Menu("Ajudar");
+        MenuItem maisInformação = new MenuItem("Mais Informação");
+        MenuItem manual = new MenuItem("Manual");
+        MenuItem site = new MenuItem("Site");
+        ajudar.getItems().addAll(maisInformação, manual, site);
+       
+        MenuBar meuMenu = new MenuBar();
+        meuMenu.getMenus().addAll(file, view, ajudar);
+       
+        Group grupoPrincipal = new Group(meuMenu);
+        root.getChildren().add(grupoPrincipal);
+       
+        Label atividade = new Label("Atividade");
+       
+        CheckBox leitura = new CheckBox("Leitura");
+        CheckBox ciclismo = new CheckBox("Ciclismo");
+        CheckBox track = new CheckBox("Track");
+        CheckBox corrida = new CheckBox("Corrida");
+       
+        Label contrato = new Label("Concorda com o contato?");
+        RadioButton concordo = new RadioButton("Concordo");
+        RadioButton discordo = new RadioButton("Discordo");
+        RadioButton naosei = new RadioButton("Não sei");
+       
+        ToggleGroup contratoGrup = new ToggleGroup();
+        concordo.setToggleGroup(contratoGrup);
+        discordo.setToggleGroup(contratoGrup);
+        naosei.setToggleGroup(contratoGrup);
+       
+        Label tObservacao = new Label("Observação");
+        TextArea observacao = new TextArea();
+        observacao.setPrefSize(400, 300);        
+        observacao.setWrapText(true);
+       
+        ObservableList<String> lista = FXCollections.observableArrayList("Informatica", "Administração", "Veste");
+        ListView<String> minhaListagem = new ListView<String>(lista);
+       
+        ButtonBar painelBt = new ButtonBar();
+        Button btVoltar = new Button("Voltar");
+        Button btConfirmar = new Button("Confirmar");
+        Button btExcluir = new Button("Excluir");
+        painelBt.getButtons().addAll(btVoltar, btConfirmar, btExcluir);
+       
+        TreeItem<String> cursos = new TreeItem<String>("Curso");
+        TreeItem<String> tecnico = new TreeItem<String>("Tecnico");
+        TreeItem<String> informatica = new TreeItem<String>("Informatica");
+        TreeItem<String> vestuario = new TreeItem<String>("Vetuaario");
+        TreeItem<String> adm = new TreeItem<String>("Administração");
+       
+        cursos.getChildren().add(tecnico);
+        tecnico.getChildren().addAll(informatica, vestuario, adm);
+       
+        TreeView<String> cursosIFC = new TreeView<String>(cursos);
+       
+        Label textoArvoret = new Label("Árvore");
+       
+        HBox MesSpiner = new HBox();
+        Text mesinho = new Text("Mes: ");
+        Spinner<Integer> mes = new Spinner<Integer>(1, 12, 1);
+        MesSpiner.getChildren().addAll(mesinho, mes);
+       
+       
+       
+        root.getChildren().addAll(atividade, leitura, ciclismo, track, corrida,
+                contrato, concordo, discordo, naosei, tObservacao, observacao,
+                textoArvoret, cursosIFC, minhaListagem, MesSpiner, painelBt);
+        
+*/
+/* Vigéssimo segundo código
 
 */
