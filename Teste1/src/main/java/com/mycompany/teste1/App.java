@@ -4,10 +4,12 @@ import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
@@ -32,6 +34,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -136,6 +139,17 @@ public class App extends Application {
         
         stage.setTitle("Sistema de teste");
         stage.show();
+        
+        btConfirmar.setOnMouseClicked((new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+                aviso.setHeaderText("Usuário logado com sucesso!");
+                aviso.show();
+            }
+        
+                
+        }));
     }
 
     public static void main(String[] args) {
@@ -537,5 +551,34 @@ Menu file = new Menu("Arquivos");
         
 */
 /* Vigéssimo segundo código
+stage.setTitle("Sistema de teste");
+        stage.show();
+        
+        btConfirmar.setOnMouseClicked((new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+                aviso.setHeaderText("Usuário logado com sucesso!");
+                aviso.show();
+            }
+        
+                
+        }));
+ou
+stage.setTitle("Sistema de teste");
+        stage.show();
+        
+        EventHandler<MouseEvent> eh = new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+                aviso.setHeaderText("Usuário logado com sucesso!");
+                aviso.show();
+            }
+        
+                
+        }
+*/
+/* Vigéssimo terceiro código
 
 */
