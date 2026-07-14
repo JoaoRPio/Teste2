@@ -57,103 +57,105 @@ public class App extends Application {
         VBox root = new VBox();
         Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
-        
+
         Menu file = new Menu("Arquivos");
         MenuItem novoAquivo = new MenuItem("Novo");
         MenuItem abrirAquivo = new MenuItem("Abrir");
         MenuItem fecharAquivo = new MenuItem("Fechar");
         file.getItems().addAll(novoAquivo, abrirAquivo, fecharAquivo);
-       
+
         Menu view = new Menu("Ver");
         MenuItem zoomIn = new MenuItem("Zoon In");
         MenuItem zoomOut = new MenuItem("Zoon Out");
         MenuItem zoomNormal = new MenuItem("Zoon Normal");
         view.getItems().addAll(zoomIn, zoomOut, zoomNormal);
-        
+
         Menu ajudar = new Menu("Ajudar");
         MenuItem maisInformação = new MenuItem("Mais Informação");
         MenuItem manual = new MenuItem("Manual");
         MenuItem site = new MenuItem("Site");
         ajudar.getItems().addAll(maisInformação, manual, site);
-       
+
         MenuBar meuMenu = new MenuBar();
         meuMenu.getMenus().addAll(file, view, ajudar);
-       
+
         Group grupoPrincipal = new Group(meuMenu);
         root.getChildren().add(grupoPrincipal);
-       
+
         Label atividade = new Label("Atividade");
-       
+
         CheckBox leitura = new CheckBox("Leitura");
         CheckBox ciclismo = new CheckBox("Ciclismo");
         CheckBox track = new CheckBox("Track");
         CheckBox corrida = new CheckBox("Corrida");
-       
+
         Label contrato = new Label("Concorda com o contato?");
         RadioButton concordo = new RadioButton("Concordo");
         RadioButton discordo = new RadioButton("Discordo");
         RadioButton naosei = new RadioButton("Não sei");
-       
+
         ToggleGroup contratoGrup = new ToggleGroup();
         concordo.setToggleGroup(contratoGrup);
         discordo.setToggleGroup(contratoGrup);
         naosei.setToggleGroup(contratoGrup);
-       
+
         Label tObservacao = new Label("Observação");
         TextArea observacao = new TextArea();
-        observacao.setPrefSize(400, 300);        
+        observacao.setPrefSize(400, 300);
         observacao.setWrapText(true);
-       
+
         ObservableList<String> lista = FXCollections.observableArrayList("Informatica", "Administração", "Veste");
         ListView<String> minhaListagem = new ListView<String>(lista);
-       
+
         ButtonBar painelBt = new ButtonBar();
         Button btVoltar = new Button("Voltar");
         Button btConfirmar = new Button("Confirmar");
         Button btExcluir = new Button("Excluir");
         painelBt.getButtons().addAll(btVoltar, btConfirmar, btExcluir);
-       
+
         TreeItem<String> cursos = new TreeItem<String>("Curso");
         TreeItem<String> tecnico = new TreeItem<String>("Tecnico");
         TreeItem<String> informatica = new TreeItem<String>("Informatica");
         TreeItem<String> vestuario = new TreeItem<String>("Vetuaario");
         TreeItem<String> adm = new TreeItem<String>("Administração");
-       
+
         cursos.getChildren().add(tecnico);
         tecnico.getChildren().addAll(informatica, vestuario, adm);
-       
+
         TreeView<String> cursosIFC = new TreeView<String>(cursos);
-       
+
         Label textoArvoret = new Label("Árvore");
-       
+
         HBox MesSpiner = new HBox();
         Text mesinho = new Text("Mes: ");
         Spinner<Integer> mes = new Spinner<Integer>(1, 12, 1);
         MesSpiner.getChildren().addAll(mesinho, mes);
-       
-       
-       
+
         root.getChildren().addAll(atividade, leitura, ciclismo, track, corrida,
                 contrato, concordo, discordo, naosei, tObservacao, observacao,
                 textoArvoret, cursosIFC, minhaListagem, MesSpiner, painelBt);
-        
+
         stage.setTitle("Sistema de teste");
         stage.show();
-        
-        btConfirmar.setOnMouseClicked((new EventHandler<MouseEvent>(){
+
+        EventHandler<MouseEvent> eh = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Alert aviso = new Alert(Alert.AlertType.INFORMATION);
                 aviso.setHeaderText("Usuário logado com sucesso!");
                 aviso.show();
             }
-        
-                
-        }));
+
+        };
+
+        btConfirmar.addEventHandler(MouseEvent.MOUSE_CLICKED, eh);
+        btExcluir.addEventHandler(MouseEvent.MOUSE_CLICKED, eh);
+        btVoltar.addEventHandler(MouseEvent.MOUSE_CLICKED, eh);
+
     }
 
     public static void main(String[] args) {
-    launch();
+        launch();
     }
 
 }
@@ -441,7 +443,7 @@ VBox root = new VBox();
         Spinner<Integer> mes = new Spinner<Integer>(1,12,1);
         root.getChildren().add(mes);
  */
-/* Vigéssimo código
+ /* Vigéssimo código
 VBox root = new VBox();
         Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
@@ -468,8 +470,8 @@ VBox root = new VBox();
        
         Group grupoPrincipal = new Group(meuMenu);
         root.getChildren().add(grupoPrincipal);
-*/
-/* Vigéssimo primeiro código
+ */
+ /* Vigéssimo primeiro código
 Menu file = new Menu("Arquivos");
         MenuItem novoAquivo = new MenuItem("Novo");
         MenuItem abrirAquivo = new MenuItem("Abrir");
@@ -549,8 +551,8 @@ Menu file = new Menu("Arquivos");
                 contrato, concordo, discordo, naosei, tObservacao, observacao,
                 textoArvoret, cursosIFC, minhaListagem, MesSpiner, painelBt);
         
-*/
-/* Vigéssimo segundo código
+ */
+ /* Vigéssimo segundo código
 stage.setTitle("Sistema de teste");
         stage.show();
         
@@ -578,7 +580,25 @@ stage.setTitle("Sistema de teste");
         
                 
         }
-*/
+ */
 /* Vigéssimo terceiro código
+ btConfirmar.addEventHandler(MouseEvent.MOUSE_CLICKED, eh);
+        btExcluir.addEventHandler(MouseEvent.MOUSE_CLICKED, eh);
+        btVoltar.addEventHandler(MouseEvent.MOUSE_CLICKED, eh);
+
+        EventHandler<MouseEvent> filtro = new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent t) {
+                if (pfSenha.getText().length() == 0) {
+                    pfSenha.getStyleClass().add("erroPreenchimento");
+                    Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+                    aviso.setHeaderText("Usuário logado com sucesso!");
+                    
+                    t.consume();
+                    aviso.show();
+                }
+            }
+        };
+*/
+/* Vigéssimo quarto código
 
 */
